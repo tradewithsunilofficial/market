@@ -9,23 +9,92 @@
   <link rel="preconnect" href="https://telegram.me" crossorigin />
   <link rel="dns-prefetch" href="https://telegram.me" />
 
-  <!-- Preload LCP Image -->
+  <!-- Preload Images -->
   <link rel="preload" as="image" href="dpc.webp" type="image/webp" />
+  <link rel="preload" as="image" href="bgdp.webp" type="image/webp" />
 
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    html,body{width:100%;height:100%;background:#fff;font-family:system-ui,sans-serif;display:flex;justify-content:center;align-items:center}
-    .box-container{position:relative;width:92%;max-width:420px;padding:3px;border-radius:12px}
-    .box-container::before{content:"";position:absolute;top:0;left:0;right:0;bottom:0;border-radius:12px;padding:3px;background:linear-gradient(90deg,#000,gold,#000);background-size:600% 600%;animation:borderMove 3s linear infinite;z-index:1;pointer-events:none}
-    @keyframes borderMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-    .box{background:rgba(255,255,255,0.85);backdrop-filter:blur(6px);border-radius:10px;padding:20px;position:relative;z-index:2;text-align:center}
-    img.dp{width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:16px;display:block;margin-left:auto;margin-right:auto}
+    html,body{
+      width:100%;
+      height:100%;
+      font-family:system-ui,sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#fff url('bgdp.webp') no-repeat center center / cover;
+    }
+    .box-container{
+      position:relative;
+      width:92%;
+      max-width:420px;
+      padding:3px;
+      border-radius:12px;
+    }
+    .box-container::before{
+      content:"";
+      position:absolute;
+      top:0;left:0;right:0;bottom:0;
+      border-radius:12px;
+      padding:3px;
+      background:linear-gradient(90deg,#000,gold,#000);
+      background-size:600% 600%;
+      animation:borderMove 3s linear infinite;
+      z-index:1;
+      pointer-events:none;
+    }
+    @keyframes borderMove{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+    .box{
+      background:rgba(255,255,255,0.85);
+      backdrop-filter:blur(6px);
+      border-radius:10px;
+      padding:20px;
+      position:relative;
+      z-index:2;
+      text-align:center
+    }
+    img.dp{
+      width:80px;height:80px;
+      border-radius:50%;
+      object-fit:cover;
+      margin:0 auto 16px;
+      display:block;
+    }
     h1{color:#002060;font-size:26px;margin-bottom:16px}
     .subscribers{font-size:15px;color:#000;margin-bottom:18px}
     h2{color:#002060;font-size:16px;margin-bottom:20px}
-    .countdown{background:#ff0055;color:#fff;font-size:14px;padding:12px;border-radius:5px;margin-bottom:22px}
-    .telegram-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:#229ED9;color:#fff;font-size:15px;font-weight:700;padding:12px 0;border-radius:40px;text-decoration:none;margin-bottom:16px;animation:pulse 1.4s infinite}
-    @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.05);opacity:0.95}}
+    .countdown{
+      background:#ff0055;
+      color:#fff;
+      font-size:14px;
+      padding:12px;
+      border-radius:5px;
+      margin-bottom:22px
+    }
+    .telegram-btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      width:100%;
+      background:#229ED9;
+      color:#fff;
+      font-size:15px;
+      font-weight:700;
+      padding:12px 0;
+      border-radius:40px;
+      text-decoration:none;
+      margin-bottom:16px;
+      animation:pulse 1.4s infinite
+    }
+    @keyframes pulse{
+      0%,100%{transform:scale(1);opacity:1}
+      50%{transform:scale(1.05);opacity:0.95}
+    }
     .telegram-btn svg{width:18px;height:18px;fill:#fff}
     .note{font-size:14px;color:#111;font-weight:700}
   </style>
@@ -39,16 +108,20 @@
         class="dp"
         width="80"
         height="80"
-        loading="eager"
+        loading="lazy"
         decoding="async"
         fetchpriority="high"
       />
       <h1>Trade With Sunil</h1>
-      <div class="subscribers"><span id="subscriberCount">23990</span> Subscribers</div>
+      <div class="subscribers">
+        <span id="subscriberCount">23990</span> Subscribers
+      </div>
       <h2>Are you Tired of LOSS in the stock market?</h2>
-      <div class="countdown">Free Joining Ends In <span id="timer">20</span> Seconds</div>
-      <a href="https://telegram.me/+FMhfDqzfusthMTdl" class="telegram-btn" rel="noopener" target="_blank" >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" aria-hidden="true" focusable="false">
+      <div class="countdown">
+        Free Joining Ends In <span id="timer">20</span> Seconds
+      </div>
+      <a href="https://telegram.me/+FMhfDqzfusthMTdl" class="telegram-btn" rel="noopener" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" aria-hidden="true">
           <path d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120s120-53.7,120-120S186.3,0,120,0z M177.3,78.2l-21.2,99.6 
             c-1.6,7.1-5.8,8.8-11.7,5.5l-32.4-23.9l-15.6,15.1c-1.7,1.7-3.2,3.2-6.5,3.2l2.3-32.9l59.9-54.1c2.6-2.3-0.6-3.7-4-1.4L83.3,134.1 
             l-31.7-9.9c-6.9-2.2-7.1-6.9,1.5-10.2l123.2-47.6C180.1,64.2,182.2,66.3,177.3,78.2z"/>
@@ -83,7 +156,7 @@
     }, interval);
   </script>
 
-  <!-- Meta Pixel Code -->
+  <!-- Updated Meta Pixel Code -->
   <script defer>
     window.addEventListener('load', function () {
       !function(f,b,e,v,n,t,s){
@@ -97,13 +170,13 @@
         s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)
       }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1235247561630238');
+      fbq('init', '1255709059283664');
       fbq('track', 'PageView');
     });
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=1235247561630238&ev=PageView&noscript=1" />
+         src="https://www.facebook.com/tr?id=1255709059283664&ev=PageView&noscript=1" />
   </noscript>
 </body>
 </html>
