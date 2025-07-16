@@ -2,156 +2,208 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trade With Sunil</title>
-  <meta name="description" content="Join Trade With Sunil for high-accuracy stock tips and market training.">
-  <link rel="icon" href="favicon.ico" />
-  <link rel="preload" as="image" href="dpc.webp" type="image/webp">
-  <link rel="preload" as="image" href="bgdp.webp" type="image/webp">
 
-  <!-- ✅ Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1255709059283664');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1255709059283664&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- ✅ End Meta Pixel Code -->
-
+  <!-- Preload LCP Image -->
+  <link rel="preload" as="image" href="dpc.webp" type="image/webp" />
+  
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: system-ui, sans-serif;
-      background: url('bgdp.webp') no-repeat center center fixed;
-      background-size: cover;
-      color: #111;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .container {
-      background-color: rgba(255,255,255,0.92);
-      margin: 0 auto;
-      padding: 16px;
-      max-width: 360px;
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      font-family: system-ui, sans-serif;
+      font-display: swap;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box-container {
+      position: relative;
+      width: 92%;
+      max-width: 420px;
+      padding: 3px;
       border-radius: 12px;
     }
+
+    .box-container::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border-radius: 12px;
+      padding: 3px;
+      background: linear-gradient(90deg, #000, gold, #000);
+      background-size: 600% 600%;
+      animation: borderMove 3s linear infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes borderMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(6px);
+      border-radius: 10px;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
     img.dp {
       width: 80px;
       height: 80px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 10px;
+      margin-bottom: 16px;
     }
+
     h1 {
-      font-size: 20px;
-      margin: 10px 0;
+      color: #002060;
+      font-size: 26px;
+      margin-bottom: 16px;
     }
-    small {
-      font-size: 12px;
-      color: #555;
+
+    .subscribers {
+      font-size: 15px;
+      color: #000;
+      margin-bottom: 18px;
     }
-    p.description {
+
+    h2 {
+      color: #002060;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .countdown {
+      background: #ff0055;
+      color: #fff;
       font-size: 14px;
-      margin: 12px 0;
-      line-height: 1.4;
-    }
-    ul {
-      font-size: 14px;
-      text-align: left;
-      padding-left: 20px;
-      margin: 12px 0;
-    }
-    li {
-      margin: 5px 0;
-    }
-    .telegram-btn, .countdown-btn {
-      display: block;
-      width: 100%;
       padding: 12px;
-      margin: 10px 0;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 14px;
+      border-radius: 5px;
+      margin-bottom: 22px;
     }
+
     .telegram-btn {
-      background: #FF5722;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: #229ED9;
       color: white;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 12px 0;
+      border-radius: 40px;
+      text-decoration: none;
+      margin-bottom: 16px;
+      animation: pulse 1.4s infinite;
     }
-    .countdown-btn {
-      background: #4CAF50;
-      color: white;
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.95; }
     }
+
+    .telegram-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: white;
+    }
+
     .note {
-      font-size: 13px;
-      margin-top: 20px;
-      color: #333;
-    }
-    footer {
-      font-size: 12px;
-      margin-top: 25px;
-      color: #666;
+      font-size: 14px;
+      color: #111;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img class="dp" src="dpc.webp" alt="Sunil - Stock Market Expert" loading="lazy" width="80" height="80">
-
-    <h1>Trade With Sunil</h1>
-    <small>26295 Subscribers</small>
-
-    <p>Smart Trading Starts Here</p>
-
-    <a class="telegram-btn" href="https://t.me/+FMhfDqzfusthMTdl" target="_blank" rel="noopener noreferrer">JOIN FREE TELEGRAM</a>
-
-    <p class="description">
-      🎯 Daily 2-4 Jackpot Free Calls<br>
-      📊 Live Market Analysis • 95% Accuracy
-    </p>
-
-    <ul>
-      <li>✅ Free Stock Tips & Breakouts</li>
-      <li>✅ Learning Content for Beginners</li>
-      <li>✅ Technical Chart Analysis</li>
-      <li>✅ No Spam — Only Value</li>
-    </ul>
-
-    <a href="#" class="countdown-btn" id="countdownBtn">
-      Free Joining Ends In <span id="timer">20</span>s
-    </a>
-
-    <a class="telegram-btn" href="https://t.me/+FMhfDqzfusthMTdl" target="_blank" rel="noopener noreferrer">JOIN FREE TELEGRAM</a>
-
-    <p class="note">
-      We make trading simple, structured, and profitable — even for total beginners. Learn smart stock market strategies from Day 1.
-    </p>
+  <div class="box-container">
+    <div class="box">
+      <img 
+        src="vsg2.webp" 
+        alt="vsg King Logo" 
+        class="dp"
+        width="80"
+        height="80"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+      <h1>Trade With Sunil</h1>
+      <div class="subscribers"><span id="subscriberCount">23990</span> Subscribers</div>
+      <h2>All Game VIP Charts Available Here</h2>
+      <div class="countdown">Free Joining Ends In <span id="timer">20</span> Seconds</div>
+      <a href="https://t.me/+FMhfDqzfusthMTdl" class="telegram-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+          <path d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120s120-53.7,120-120S186.3,0,120,0z M177.3,78.2l-21.2,99.6 
+            c-1.6,7.1-5.8,8.8-11.7,5.5l-32.4-23.9l-15.6,15.1c-1.7,1.7-3.2,3.2-6.5,3.2l2.3-32.9l59.9-54.1c2.6-2.3-0.6-3.7-4-1.4L83.3,134.1 
+            l-31.7-9.9c-6.9-2.2-7.1-6.9,1.5-10.2l123.2-47.6C180.1,64.2,182.2,66.3,177.3,78.2z"/>
+        </svg>
+        JOIN FREE TELEGRAM
+      </a>
+      <div class="note">Smart Trading Starts Here</div>
+    </div>
   </div>
 
-  <script>
+  <script defer>
     let timeLeft = 20;
-    const timerEl = document.getElementById("timer");
+    const timer = document.getElementById("timer");
     const countdown = setInterval(() => {
       timeLeft--;
-      timerEl.textContent = timeLeft;
+      timer.textContent = timeLeft;
       if (timeLeft <= 0) {
         clearInterval(countdown);
         window.location.href = "https://t.me/+FMhfDqzfusthMTdl";
       }
     }, 1000);
+
+    const start = 23990, end = 24995, duration = 4000;
+    const interval = duration / (end - start);
+    let count = start;
+    const counter = document.getElementById("subscriberCount");
+
+    const counterInterval = setInterval(() => {
+      count++;
+      counter.textContent = count.toLocaleString("en-IN");
+      if (count >= end) clearInterval(counterInterval);
+    }, interval);
   </script>
 
-  <footer>
-    © 2025 BankNifty Put Calls • All Rights Reserved
-  </footer>
+  <!-- Meta Pixel Code: Optimized for non-blocking -->
+  <script defer>
+    window.addEventListener('load', function () {
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1235247561630238');
+      fbq('track', 'PageView');
+    });
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=1235247561630238&ev=PageView&noscript=1" />
+  </noscript>
 </body>
 </html>
